@@ -1,0 +1,232 @@
+
+
+
+insert into "customer"
+
+insert into "customer" (login) values ('Anton'); 
+insert into "customer" (login) values ('Bob');
+insert into "customer" (login) values ('Alexsandr');
+insert into "customer" (login) values ('Anzelika');
+insert into "customer" (login) values ('Marie');
+
+
+============
+
+insert into "author"
+
+insert into "author" (pseudonym) values ('Whitman')
+insert into "author" (pseudonym, count_of_books) values ('Twain', 20);
+insert into "author" (pseudonym, count_of_books) values ('Miller', 11);
+insert into "author" (pseudonym, count_of_books) values ('Morrison', 19);
+
+=============
+
+insert into "person"
+
+insert into "person" (first_name, last_name, author_id) values ('Franc' , 'Kafka', 1 );
+insert into "person" (first_name, last_name, author_id) values ('Raymond' , 'Chandler', 2 );
+insert into "person" (first_name, last_name, author_id) values ('Mark' , 'Twain', 3 );
+insert into "person" (first_name, last_name, author_id) values ('Arthur' , 'Miller', 4 );
+insert into "person" (first_name, last_name, author_id) values ('Toni' , 'Morrison', 5 );
+
+insert into "person" (first_name, last_name, password, email, age, employee_id ) 
+values ('Anthony', 'Wagner', 'anthony.wagner','anthony.wagner@gmail.com', 24, 1 );
+
+insert into "person" (first_name, last_name, password, email, age, employee_id ) 
+values ('Marvin ', 'Patterson', 'marvin.patterson','martin.patterson@gmail.com', 19, 2 );
+
+insert into "person" (first_name, last_name, password, email, age, employee_id ) 
+values ('Pamela', 'Cruz', 'pamela.cruz','pamela.cruz@gmail.com', 25, 3 );
+
+insert into "person" (first_name, last_name, password, email, age, employee_id ) 
+values ('Joyce', 'Rivera', 'joyce.rivera','joyce.rivera@gmail.com', 35, 4 );
+
+insert into "person" (first_name, last_name, password, email, age, employee_id ) 
+values ('James', 'Thomas', 'james.thomas','james.thomas@gmail.com', 30, 5 );
+
+
+
+insert into "person" (first_name, last_name, password, email, age, customer_id) 
+values ('Anton', 'Misskii', 'anton.misskii', 'anton.misskii@gmail.com', 20 , 1); 
+
+insert into "person" (first_name, last_name, password, email, age, customer_id) 
+values ('Bob', 'Dilan', 'bob.dilan', 'bob.dilan@gmail.com', 32, 2);
+
+insert into "person" (first_name, last_name, password, email, age, customer_id) 
+values('Anzelika', 'Vorob', 'anzelika.vorob', 'anzelika.vorob@gmail', '18', 4);
+
+insert into "person" (first_name, last_name, password, email, age, customer_id) 
+values('Marie', 'Pertrova', 'marie.petrova', 'marie.petrova@gmail.com', 22, 5);
+
+=============
+
+insert into "position"
+
+
+insert into "position"(position_type, employee_id) values ('administrator', 4); 
+insert into "position"(position_type, employee_id) values ('pokladni', 1);
+insert into "position"(position_type, employee_id) values ('skolici', 2); 
+insert into "position"(position_type, employee_id) values ('konzultant', 5);
+insert into "position"(position_type, employee_id) values ('meneger', 3);
+
+
+=============
+
+
+insert into "discount"
+
+insert into "discount"(discount_type, discount_quantity, customer_id) values ('student', 15, 1); 
+insert into "discount"(discount_type, discount_quantity, customer_id) values ('sleva_card',20, 2); 
+insert into "discount"(discount_type, discount_quantity, customer_id) values ('student', 15, 3); 
+insert into "discount"(discount_type, discount_quantity, customer_id) values ('student', 15, 4); 
+insert into "discount"(discount_type, discount_quantity, customer_id) values ('student', 15, 5); 
+
+=============
+
+
+insert into "contact"
+
+insert into "contact"(phone_number, person_id) values (8801080, 13);
+insert into "contact"(phone_number, person_id) values (7975601, 14);
+insert into "contact"(phone_number, person_id) values (6330018, 15);
+insert into "contact"(phone_number, person_id) values (4335424, 16);
+insert into "contact"(phone_number, person_id) values (4513808, 17);
+
+=============
+
+
+insert into "address"
+
+insert into "address"(city, street, street_number, post_code)
+values ('Brno','Obilní trh','308/10','602 00');
+
+insert into "address"(city, street, street_number, post_code)
+values ('Brno','Obilní trh','308/8','602 00');
+
+insert into "address"(city, street, street_number, post_code)
+values ('Praha','Rašínovo nábřeží','1981/80','120 00');
+
+insert into "address"(city, street, street_number, post_code)
+values ('Brno','Kolejní ','2','612 00');
+
+insert into "address"(city, street, street_number, post_code)
+values ('Brno','Cejl','45','602 00');
+
+
+=============
+
+
+insert into "person_has_address"
+
+
+insert into "person_has_address"(person_id, address_id) values (13,4);
+
+insert into "person_has_address"(person_id, address_id) values (10,1);
+
+insert into "person_has_address"(person_id, address_id) values (5,2);
+
+insert into "person_has_address"(person_id, address_id) values (15,4);
+
+insert into "person_has_address"(person_id, address_id) values (1,3);
+
+=============
+
+
+insert into "book"
+
+
+insert into "book"(title, year_of_issue, price) values ('Blithe Spirit', '1983', 250);
+insert into "book"(title, year_of_issue, price) values ('Cabbages and Kings', 1965, 300);
+insert into "book"(title, year_of_issue, price) values ('Captains Courageous', 1970, 350);
+insert into "book"(title, year_of_issue, price) values ('Carrion Comfort', 1980, 100);
+
+
+=============
+
+
+insert into "genre" 
+
+insert into "genre" (genre) values ('Classics');
+insert into "genre" (genre) values ('Fantasy');
+insert into "genre" (genre) values ('Horror');
+insert into "genre" (genre) values ('Detective');
+insert into "genre" (genre) values ('Adventure');
+
+=============
+
+
+
+insert into "book_has_author"
+
+
+insert into "book_has_author"(book_id, author_id) values (1,3);
+insert into "book_has_author"(book_id, author_id) values (2,4);
+insert into "book_has_author"(book_id, author_id) values (3,1);
+insert into "book_has_author"(book_id, author_id) values (5,2);
+insert into "book_has_author"(book_id, author_id) values (4,3);
+
+=============
+
+
+insert into "publisher"
+
+
+insert into "publisher"(publisher, circulation_of_books) values ('Penguin Random House',1000 ); 
+insert into "publisher"(publisher, circulation_of_books) values ('Hachette', 3000 );
+insert into "publisher"(publisher, circulation_of_books) values ('HarperCollins', 5000 );
+insert into "publisher"(publisher, circulation_of_books) values ('Macmillan Publishers', 3400 );
+insert into "publisher"(publisher, circulation_of_books) values ('Simon & Schuster', 2500);
+
+=============
+
+insert into "order"
+
+
+insert into "order"(count_of_books, customer_id) values (2,1);
+insert into "order"(count_of_books, customer_id) values (4,1);
+insert into "order"(count_of_books, customer_id) values (1,2);
+insert into "order"(count_of_books, customer_id) values (3,3);
+insert into "order"(count_of_books, customer_id) values (1,4);
+insert into "order"(count_of_books, customer_id) values (6,5);
+
+=============
+
+insert into"book_has_genre"
+
+
+insert into"book_has_genre"(genre_id,book_id) values (1,2);
+insert into"book_has_genre"(genre_id,book_id) values (2,2);
+insert into"book_has_genre"(genre_id,book_id) values (3,3);
+insert into"book_has_genre"(genre_id,book_id) values (4,1);
+insert into"book_has_genre"(genre_id,book_id) values (5,5);
+
+
+=============
+
+
+insert into"book_has_publisher"
+
+
+insert into"book_has_publisher"(publisher_id,book_id) values (1,2);
+insert into"book_has_publisher"(publisher_id,book_id) values (2,2);
+insert into"book_has_publisher"(publisher_id,book_id) values (3,3);
+insert into"book_has_publisher"(publisher_id,book_id) values (4,4);
+insert into"book_has_publisher"(publisher_id,book_id) values (5,5);
+
+=============
+
+
+insert into "order_has_book"
+
+insert into "order_has_book"(book_id, order_id) values (1,1);
+insert into "order_has_book"(book_id, order_id) values (2,1);
+insert into "order_has_book"(book_id, order_id) values (3,2);
+insert into "order_has_book"(book_id, order_id) values (4,2);
+insert into "order_has_book"(book_id, order_id) values (5,5);
+  
+
+
+
+
+
+

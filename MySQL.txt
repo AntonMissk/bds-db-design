@@ -1,0 +1,136 @@
+CREATE TABLE `customer` (
+  `customer_id` SERIAL,
+  `login` varchar(45),
+  `discount_id` INT,
+  PRIMARY KEY (`customer_id`)
+);
+
+CREATE TABLE `order` (
+  `order_id` SERIAL,
+  `date` DateTime,
+  `count_of_books` INT,
+  `total_price` FLOAT,
+  `customer_id` INT,
+  ` address_id` INT,
+  PRIMARY KEY (`order_id`),
+  FOREIGN KEY (`customer_id`) REFERENCES `customer`(`customer_id`)
+);
+
+CREATE TABLE `address` (
+  `address_id` SERIAL,
+  `city` varchar(45),
+  `district` varchar(45),
+  `street` varchar(45),
+  `post_code` INT,
+  PRIMARY KEY (`address_id`),
+  FOREIGN KEY (`address_id`) REFERENCES `order`(` address_id`)
+);
+
+CREATE TABLE `author` (
+  `author_id` SERIAL,
+  `pseudonym` varchar(45),
+  `count_of_books` INT,
+  PRIMARY KEY (`author_id`)
+);
+
+CREATE TABLE `Person` (
+  `person_id` SERIAL,
+  `first_name` varchar(45),
+  `last_name` varchar(45),
+  `password` varchar(45),
+  `e-mail` varchar(45),
+  `age` INT,
+  `customer_id` INT,
+  `author_id` INT,
+  `employee_id` INT,
+  PRIMARY KEY (`person_id`),
+  FOREIGN KEY (`author_id`) REFERENCES `author`(`author_id`),
+  FOREIGN KEY (`customer_id`) REFERENCES `customer`(`customer_id`)
+);
+
+CREATE TABLE `person_has_address` (
+  `person_id` INT,
+  `address_id` INT,
+  FOREIGN KEY (`address_id`) REFERENCES `address`(`address_id`),
+  FOREIGN KEY (`person_id`) REFERENCES `Person`(`person_id`)
+);
+
+CREATE TABLE `publisher` (
+  `publisher_id` SERIAL,
+  `publisher` varchar(45),
+  `circulation_of_books` INT,
+  PRIMARY KEY (`publisher_id`)
+);
+
+CREATE TABLE `book` (
+  `book_id` SERIAL,
+  `title` varchar(45),
+  `year_of_issue` DATE,
+  `price` FLOAT,
+  PRIMARY KEY (`book_id`)
+);
+
+CREATE TABLE `genre` (
+  `genre_id` SERIAL,
+  `genre` varchar(45),
+  PRIMARY KEY (`genre_id`)
+);
+
+CREATE TABLE `book_has_genre` (
+  `genre_id` INT,
+  `book_id` INT,
+  FOREIGN KEY (`book_id`) REFERENCES `book`(`book_id`),
+  FOREIGN KEY (`genre_id`) REFERENCES `genre`(`genre_id`)
+);
+
+CREATE TABLE `position` (
+  `position_id` SERIAL,
+  `position` varchar(45),
+  PRIMARY KEY (`position_id`)
+);
+
+CREATE TABLE `employee` (
+  `empoloyee_id` SERIAL,
+  `salary` FLOAT,
+  `work_experience` INT,
+  `position_id` INT,
+  PRIMARY KEY (`empoloyee_id`),
+  FOREIGN KEY (`position_id`) REFERENCES `position`(`position_id`),
+  FOREIGN KEY (`empoloyee_id`) REFERENCES `Person`(`employee_id`)
+);
+
+CREATE TABLE `discount` (
+  `discount_id` SERIAL,
+  `discount_type` varchar(45),
+  `discount_quantity` INT,
+  PRIMARY KEY (`discount_id`)
+);
+
+CREATE TABLE `book_has_publisher` (
+  `book_id` INT,
+  `publisher_id` INT,
+  FOREIGN KEY (`book_id`) REFERENCES `book`(`book_id`),
+  FOREIGN KEY (`publisher_id`) REFERENCES `publisher`(`publisher_id`)
+);
+
+CREATE TABLE `book_has_author` (
+  `author_id` INT,
+  `book_id` INT,
+  FOREIGN KEY (`book_id`) REFERENCES `book`(`book_id`),
+  FOREIGN KEY (`author_id`) REFERENCES `author`(`author_id`)
+);
+
+CREATE TABLE `order_has_book` (
+  `book_id` INT,
+  `order_id` INT,
+  FOREIGN KEY (`book_id`) REFERENCES `book`(`book_id`),
+  FOREIGN KEY (`order_id`) REFERENCES `order`(`order_id`)
+);
+
+CREATE TABLE `contact` (
+  `contact_id` SERIAL,
+  `phone_number` INT,
+  `person_id` INT,
+  PRIMARY KEY (`contact_id`),
+  FOREIGN KEY (`person_id`) REFERENCES `Person`(`person_id`)
+);
